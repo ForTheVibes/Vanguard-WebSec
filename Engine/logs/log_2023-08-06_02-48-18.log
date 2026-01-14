@@ -1,0 +1,15 @@
+AEGIS - VULNERABILITY SCANNING ENGINE
+
+***********************************************************************************************************
+Printing configuration settings:
+
+[scan_id]
+uuid=11
+
+[ssh-port22]
+username_ssh=kali
+password_ssh=kali
+
+[http_dvwa-port80]
+username_dvwa=admin
+password_dvwa=password

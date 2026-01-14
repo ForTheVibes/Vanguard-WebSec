@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>AEGIS | Report</title>
+
+  <link href="../css/index.css" rel="stylesheet" />
+  <link href="../css/result.css" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <!-- Include jspdf library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <style>
+    .summary-container {
+      padding-left: 100px;
+      padding-top: 30px;
+    }
+
+    .host-summary-container {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 15px;
+      width: 90%;
+      background-color: #1f2833;
+    }
+
+    .vulnerability-summary-container {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 15px;
+      width: 90%;
+      background-color: #1f2833;
+    }
+
+    .card-body {
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .card-footer {
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .card-deck {
+      margin-top: 20px;
+      margin-left: 100px;
+    }
+
+    #report-nav {
+      background-color: #66fcf1;
+      color: black;
+    }
+
+    .footer {
+      height: 40px;
+      left: 0;
+      bottom: 30;
+      width: 100%;
+    }
+
+    #alertMsg {
+      padding-top: 30px;
+      vertical-align: middle;
+      display: table-cell;
+    }
+
+    .hidden-row {
+      display: none;
+      /* Hide the element by default */
+    }
+
+    /* Optionally, you can define transitions or animations for smooth visibility changes */
+    .hidden-row.show {
+      display: table-row;
+      /* Display the element as a table row when the class 'show' is added */
+      /* or use 'display: block;' depending on the desired behavior */
+    }
+
+    #exportBtn {
+      margin-left: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="home" viewBox="0 0 16 16">
+      <path fill="#FFFFFF"
+        d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z">
+      </path>
+    </symbol>
+    <symbol id="table" viewBox="0 0 16 16">
+      <path fill="#FFFFFF"
+        d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z">
+      </path>
+    </symbol>
+    <symbol id="speedometer2" viewBox="0 0 16 16">
+      <path fill="#FFFFFF"
+        d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z">
+      </path>
+      <path fill-rule="evenodd" fill="#FFFFFF"
+        d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z">
+      </path>
+    </symbol>
+  </svg>
+
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background: #1c1c1c;">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white">
+          <a id="logoA" class="navbar-brand" href="/">
+            <img id="aegis_logo" src="../img/aegis_logo.png" alt="Logo">
+          </a>
+
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item py-2">
+              <a href="/" class="nav-link text-white" aria-current="page">
+                <svg class="bi me-2" width="25" height="25">
+                  <use xlink:href="#home"></use>
+                </svg>Dashboard
+              </a>
+            </li>
+            <li class="py-2">
+              <a href="conf" class="nav-link text-white" aria-current="page">
+                <svg class="bi me-2" width="25" height="25">
+                  <use xlink:href="#speedometer2"></use>
+                </svg>Configuration file
+              </a>
+            </li>
+            <li class="py-2">
+              <a href="history" class="nav-link text-white" aria-current="page">
+                <svg class="bi me-2" width="25" height="25">
+                  <use xlink:href="#table"></use>
+                </svg>History
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="col py-3" id="leftCol" style="background-color: #69B8CF;">
+        <div class="summary-container">
+          <div class="row">
+            <div class="Aegis-col" style="font-weight: 900;">AEGIS Vulnerability Report</div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="summary-col">
+              <b>
+                <h2 style="font-weight: 900; font-size: 40px;">Summary</h2>
+              </b>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-4">
+              <div id="start_time_card" class="start-time-col font-weight-bold">Scan Started:</div>
+            </div>
+            <div class="col-4">
+              <div id="end_time_card" class="end-time-col font-weight-bold">Scan Ended:</div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-6">
+            <div class="card-deck">
+              <div class="card text-white bg-danger mb-4" style="max-width: 10rem">
+                <div class="card-body">
+                  <p id="high_card" class="card-text-1"></p>
+                </div>
+                <div class="card-footer">High</div>
+              </div>
+
+              <div class="card text-white bg-warning mb-4" style="max-width: 10rem">
+                <div class="card-body">
+                  <p id="med_card" class="card-text-2"></p>
+                </div>
+                <div class="card-footer">Medium</div>
+              </div>
+              <div class="card text-white bg-primary mb-4" style="max-width: 10rem">
+                <div class="card-body">
+                  <p id="low_card" class="card-text-3"></p>
+                </div>
+                <div class="card-footer">Low</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5" id="alertMsg">
+            <p style="font-weight: 500;">
+              Any <span class="text-danger">HIGH</span> and
+              <span class="text-warning">MEDIUM</span> severity vulnerabilities
+              should be investigated and confirmed so that remediation can take
+              place. <br /><span class="text-primary">LOW</span> risk items should
+              not be ignored as they can be chained with other vulnerabilities to
+              enable further attacks
+            </p>
+          </div>
+        </div>
+        <br />
+        <div class="host-summary-container container-fluid">
+          <div class="row">
+            <div class="summary-col">
+              <h1 style="color: whitesmoke; font-weight: 700; font-size: 25px;">Host Summary</h1>
+              <table class="table table-dark table-bordered" name="host_summary" id="host_summary">
+                <thead>
+                  <tr>
+                    <th scope="col">Host_ip</th>
+                    <th scope="col">Start_time</th>
+                    <th scope="col">End_time</th>
+                    <th scope="col">Average Risk Score</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <div class="vulnerability-summary-container container-fluid">
+          <div class="row">
+            <div class="summary-col">
+              <h1 style="color: whitesmoke; font-weight: 700; font-size: 25px;">Vulnerability Summary</h1>
+              <table class="table table-dark table-bordered" name="vuln_summary" id="vuln_summary">
+                <thead>
+                  <tr>
+                    <th scope="col">Severity</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Host</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">CWSS</th>
+                    <th scope="col">Count</th>
+                    <th scope="col">More details</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br />
+        <button id="exportBtn" style>Export Screenshot</button>
+
+      </div>
+      <!-- >>>>>>>>>>>>>> -->
+    </div>
+  </div>
+
+  <script>
+    function toggleDetails(button) {
+      const hiddenRow = button.closest("tr").nextElementSibling;
+      hiddenRow.classList.toggle("hidden-row");
+    }
+    var host_ip = ``;
+    uuid = localStorage.getItem('scan_id')
+    const baseUrl = "http://localhost:8081";
+    function makeRequest(url) {
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.onload = () => {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            resolve(xhr.response);
+          } else {
+            reject(new Error(`Request failed with status ${xhr.status}`));
+          }
+        };
+        xhr.onerror = () => {
+          reject(new Error('Network error occurred'));
+        };
+        xhr.send();
+      });
+    }
+
+    // First XHR request
+    makeRequest(`${baseUrl}/get-specific-scan/${uuid}`)
+      .then((response) => {
+        console.log('Specific Scan Result:', response);
+        var response = JSON.parse(response); // Parse the JSON response
+        data = response[0]; // The response will be a JSON object or array
+        // Do whatever you need with the 'response' data here
+        const high_card = document.getElementById('high_card');
+        const med_card = document.getElementById('med_card');
+        const low_card = document.getElementById('low_card');
+        const start_time_card = document.getElementById('start_time_card');
+        const end_time_card = document.getElementById('end_time_card');
+
+        high_card.innerText = data['high_vuln'];
+        med_card.innerText = data['med_vuln'];
+        low_card.innerText = data['low_vuln'];
+        start_time_card.innerText = `Scan Started: ${data['start_time']}`;
+        end_time_card.innerText = `Scan Ended: ${data['end_time']}`;
+
+        host_ip = data['host_ip']
+        const result_host_summary_tables = `
+            <tbody>
+              <tr class="table-light">
+                <th scope="row">${data['host_ip']}</td>
+                <td>${data['start_time']}</td>
+                <td>${data['end_time']}</td>
+                <td>${data['risk_score']}</th>
+              </tr>
+            </tbody>
+            `
+        $("#host_summary").append(result_host_summary_tables);
+
+        // Second XHR request
+        return makeRequest(`${baseUrl}/get-all-vuln-info/${uuid}`);
+      })
+      .then((response) => {
+        console.log('Vulnerability Path Pattern:', response);
+        var new_response = JSON.parse(response); // Parse the JSON response
+        // Do whatever you need with the 'response' data here
+
+        new_response.sort((a, b) => b.cwss - a.cwss);
+        new_response.forEach((item) => {
+          const cwe_id = item['cwe_id'];
+
+          // Send a request for each 'cwe_name'
+          makeRequest(`${baseUrl}/get-vuln-path-pattern/${uuid}/${cwe_id}`)
+            .then((cweResponse) => {
+              console.log(`Vulnerability Path Pattern for ${cwe_id}:`, cweResponse);
+              var cweResponse = JSON.parse(cweResponse); // Parse the JSON response
+              // Do whatever you need with the 'cweResponse' data here
+              console.log(cweResponse)
+              var oneCweKeyValue = ``;
+              cweResponse.forEach((oneKeyValue, index) => {
+                // oneKeyValue = JSON.parse(oneKeyValue);
+                oneCweKeyValue += `${index + 1}. file location path: ${oneKeyValue['file_location_path']} with key pattern: ${oneKeyValue['keyword_pattern']} <br>`
+                // console.log(oneCweKeyValue)
+              })
+              var result_vuln_summary_tables = `
+                <tbody class="vulnerability-entry">
+                  <tr class="table-light">
+                    <th scope="row">${item['severity']}</th>
+                    <td>${item['cwe_name']}</td>
+                    <td>${host_ip}</td>
+                    <td>${item['location']}</td>
+                    <td>${item['cwss']}</td>
+                    <td>${item['count']}</td>
+                    <td><span class="toggle-details" onclick="toggleDetails(this)"
+                    ><button>√</button></span></td>
+                  </tr>
+                  <tr class="hidden-row" name="hidden-row">
+                    <td colspan="7">
+                      <p>CWE${cwe_id}: ${item['cwe_name']}</p>
+                      <br />
+                      <p>Severity: <span class="text-danger">${item['severity']}</span></p>
+                      <br />
+                      <p>CWSS: ${item['cwss']}</p>
+                      <br />
+                      <p>Vulnerablity insight: ${item['cwe_description']}</p>
+                      <br />
+                      <p>Count: ${item['count']}</p>
+                      <br />
+                      <p>Area detected:</p>
+                      <br />
+                      <ol id="area-list" style="font-family: monospace; color: white;"><pre style="font-family: monospace; color: white;">${oneCweKeyValue}</pre>
+                      </ol>
+                      <p>Solution: ${item['cwe_solution']}</p>
+                    </td>
+                  </tr>
+                </tbody>
+                `
+
+              $("#vuln_summary").append(result_vuln_summary_tables);
+            })
+            .catch((error) => {
+              console.error(`Error retrieving Vulnerability Path Pattern for ${cwe_id}:`, error);
+            });
+        })
+
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  </script>
+</body>
+<!-- <script>
+  $("#exportBtn").click(function () {
+    html2canvas(document.body).then(function (canvas) {
+      var img = canvas.toDataURL("image/png");
+      var doc = new jsPDF("l", "mm", [550, 710]);
+      // var doc = new jsPDF("l", "mm", [297, 210]);
+
+      doc.addImage(img, "JPEG", 20, 20);
+      doc.save("exportPDF.pdf");
+    });
+  });
+</script> -->
+<script>
+  document.getElementById('exportBtn').addEventListener('click', function () {
+    // Select the element to be captured (the entire body in this case)
+    const element = document.getElementById('leftCol');
+
+    // Use html2canvas to capture the content as an image
+    html2canvas(element).then(function (canvas) {
+      // Get the data URL from the canvas
+      const dataURL = canvas.toDataURL();
+
+      // Create a new jspdf instance
+      const pdf = new jsPDF("l", "mm", [400, 250]);
+
+      // Calculate the width and height of the PDF page (assuming A4 size)
+      const pdfWidth = 400; // in mm
+      const pdfHeight = 250; // in mm
+
+      // Add the image to the PDF
+      pdf.addImage(dataURL, 'PNG', 0, 0, pdfWidth, pdfHeight);
+
+      // Save the PDF
+      pdf.save('exported_file.pdf');
+
+    });
+  });
+</script>
+
+
+</html>

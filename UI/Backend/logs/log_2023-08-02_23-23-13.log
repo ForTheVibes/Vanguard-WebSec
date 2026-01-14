@@ -1,0 +1,21 @@
+Namespace(version=False, config_file=None, cfg_specs=False, sysconfdir=False, scan_start='192.168.233.149', scan_stop=None)
+Starting scan with ID: 6, target ip address: 192.168.233.149
+Number of plugins:  6 
+
+Running script <module 'cwe359_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe359_plugin.py'>
+Running script <module 'cwe261_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe261_plugin.py'>
+Running script <module 'cwe89_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe89_plugin.py'>
+Running script <module 'cwe260_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe260_plugin.py'>
+Running script <module 'cwe312_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe312_plugin.py'>
+
+Length of the web-app plugins responses 5
+Length of the file-sys plugins responses 8 
+
+This machine is vulnerable to CWE359.
+This machine is not vulnerable to CWE261.
+This machine is vulnerable to CWE89.
+This machine is vulnerable to CWE260.
+This machine is vulnerable to CWE312.
+This machine is not vulnerable to CWE521.
+Directory '/home/kali/FYP/group-6-fyp-aegis/Engine/functional_plugins' not found.
+[{"end_time": "Thu, 03 Aug 2023 03:23:04 GMT", "high_vuln": 2, "host_ip": "192.168.233.149", "low_vuln": 0, "med_vuln": 3, "risk_score": 51.7, "scan_id": 51, "scan_uuid": 6, "start_time": "Thu, 03 Aug 2023 03:22:21 GMT"}]

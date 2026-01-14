@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>AEGIS | History</title>
+
+  <link href="../css/index.css" rel="stylesheet" />
+  <link href="../css/history.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0-beta1/css/bootstrap.min.css"
+    integrity="sha512-thoh2veB35ojlAhyYZC0eaztTAUhxLvSZlWrNtlV01njqs/UdY3421Jg7lX0Gq9SRdGVQeL8xeBp9x1IPyL1wQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"
+    integrity="sha512-q2vREMvON/xrz1KuOj5QKWmdvcHtM4XNbNer+Qbf4TOj+RMDnul0Fg3VmmYprdf3fnL1gZgzKhZszsp62r5Ugg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="home" viewBox="0 0 16 16">
+      <path fill="#FFFFFF"
+        d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z">
+      </path>
+    </symbol>
+    <symbol id="table" viewBox="0 0 16 16">
+      <path fill="#FFFFFF"
+        d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z">
+      </path>
+    </symbol>
+    <symbol id="speedometer2" viewBox="0 0 16 16">
+      <path fill="#FFFFFF"
+        d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z">
+      </path>
+      <path fill-rule="evenodd" fill="#FFFFFF"
+        d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z">
+      </path>
+    </symbol>
+  </svg>
+
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-2 col-xl-2 px-sm-2 px-0" style="background: #1c1c1c;">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white">
+          <a id="logoA" class="navbar-brand" href="/">
+            <img id="aegis_logo" src="../img/aegis_logo.png" alt="Logo">
+          </a>
+
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item py-2">
+              <a href="/" class="nav-link text-white" aria-current="page">
+                <svg class="bi me-2" width="25" height="25">
+                  <use xlink:href="#home"></use>
+                </svg>Dashboard
+              </a>
+            </li>
+            <li class="py-2">
+              <a href="conf" class="nav-link text-white" aria-current="page">
+                <svg class="bi me-2" width="25" height="25">
+                  <use xlink:href="#speedometer2"></use>
+                </svg>Configuration file
+              </a>
+            </li>
+            <li class="py-2">
+              <a href="history" class="nav-link active" aria-current="page">
+                <svg class="bi me-2" width="25" height="25">
+                  <use xlink:href="#table"></use>
+                </svg>History
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="col py-3" id="leftCol" style="background-color: #69B8CF;">
+
+        <div class="container mt-5 px-2">
+          <div class="mb-3 d-flex justify-content-between align-items-center">
+            <div><b>Previously scanned result records</b></div>
+
+            <div class="px-2">
+              <span>Filters <i class="fa fa-angle-down"></i></span>
+              <i class="fa fa-ellipsis-h ms-3"></i>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-responsive">
+              <thead>
+                <tr class="bg-light">
+                  <th scope="col" width="5%">#</th>
+                  <th scope="col" width="20%">Host_ip</th>
+                  <th scope="col" width="10%">Risk score</th>
+                  <th scope="col" width="20%">Start time</th>
+                  <th scope="col" width="20%">End time</th>
+                  <th scope="col" width="8%">Low Vuln</th>
+                  <th scope="col" width="8%">Med Vuln</th>
+                  <th scope="col" width="8%">High Vuln</th>
+                  <!-- <th scope="col" class="text-end" width="20%"><span>Revenue</span></th> -->
+                </tr>
+              </thead>
+              <tbody name="scanhistorylist" id="scanhistorylist">
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const baseUrl = "http://localhost:5000";
+    axios.get(`${baseUrl}/getresults`)
+      .then((response) => {
+        const scanhistory = response.data;
+        var scans = ``;
+        for (let i = 0; i < scanhistory['Results'].length; i++) {
+          console.log(scanhistory['Results'][i]) // works
+          // scans = (scanhistory['Results'][i])
+          console.log(scanhistory['Results'][i]['host_ip'])
+
+          const one_scans = `
+                <tr class="bg-light">
+                  <th>${scanhistory['Results'][i]['scan_uuid']}</th>
+                  <td>${scanhistory['Results'][i]['host_ip']}</td>
+                  <td>${scanhistory['Results'][i]['risk_score']}</td>
+                  <td>${scanhistory['Results'][i]['start_time']}</td>
+                  <td>${scanhistory['Results'][i]['end_time']}</td>
+                  <td>${scanhistory['Results'][i]['low_vuln']}</td>
+                  <td>${scanhistory['Results'][i]['med_vuln']}</td>
+                  <td>${scanhistory['Results'][i]['high_vuln']}</td>
+                </tr>
+                `
+          scans += one_scans;
+        }
+        $("#scanhistorylist").html(scans);
+      })
+
+      .catch((error) => {
+        console.log("inside frontend history.html /getresults error")
+        console.log(error)
+      })
+
+  </script>
+
+
+</body>
+
+</html>

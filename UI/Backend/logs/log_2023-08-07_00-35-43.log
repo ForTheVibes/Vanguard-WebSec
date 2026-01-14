@@ -1,0 +1,140 @@
+AEGIS - VULNERABILITY SCANNING ENGINE
+
+***********************************************************************************************************
+Starting scan with ID: 16, target ip address: 192.168.233.150
+Number of plugins:  6 
+
+Running script <module 'cwe359_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe359_plugin.py'>
+Running script <module 'cwe261_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe261_plugin.py'>
+Running script <module 'cwe89_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe89_plugin.py'>
+Running script <module 'cwe260_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe260_plugin.py'>
+Running script <module 'cwe312_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe312_plugin.py'>
+Running script <module 'cwe521_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe521_plugin.py'>
+
+Length of the web-app plugins responses 5
+Length of the file-sys plugins responses 18 
+
+***********************************************************************************************************
+Summary of the scan:
+This machine is vulnerable to CWE359.
+This machine is not vulnerable to CWE261.
+This machine is vulnerable to CWE89.
+This machine is vulnerable to CWE260.
+This machine is vulnerable to CWE312.
+This machine is vulnerable to CWE521.
+***********************************************************************************************************
+
+SCAN INFORMATION:
+Start_time: Mon, 07 Aug 2023 04:34:49 GMT
+End_time: Mon, 07 Aug 2023 04:35:42 GMT
+Host IP: 192.168.233.150
+Average Risk Score: 51.7
+
+Overall of vulnerabilities detected
+	Low vulnerabilities: 0
+	Medium vulnerabilities: 3
+	High vulnerabilities: 2
+
+*************************************************************************
+VULNERABILITY SUMMARY
+1. CWE521 - Weak Password Requirements
+Description: 
+The product does not require that users should have strong passwords, which makes it easier for attackers to compromise user accounts.
+
+Location: port/22
+CWSS: 84.1
+Solution: 
+Enforce password complexity requirements according to an appropriate password policy.
+
+Count: 10
+
+
+ AREA DETECTED:
+ 		1. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme
+		2. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: passw0rd
+		3. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
+		4. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
+		5. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
+		6. PATH: /etc/xrdp/xrdp.ini With KEYWORD: asksame
+		7. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
+		8. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
+		9. PATH: /etc/redsocks.conf With KEYWORD: baz
+		10. PATH: /etc/redsocks.conf With KEYWORD: pazzw0rd
+
+#######################################################################################################################################
+
+2. CWE89 - Improper Neutralization of Special Elements used in an SQL Command
+Description: 
+The product constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.
+
+Location: port/80
+CWSS: 71.1
+Solution: 
+Using prepared statements and white-list SQL quries that can be performed on the database.
+
+Count: 1
+
+
+ AREA DETECTED:
+ 		1. PATH: http://192.168.233.150/dvwa/login.php With KEYWORD: <pre>ID: ' OR '1'='1' -- <br />First name: admin<br />Surname: admin</pre><pre>ID: ' OR '1'='1' -- <br />First name: Gordon<br />Surname: Brown</pre><pre>ID: ' OR '1'='1' -- <br />First name: Hack<br />Surname: Me</pre><pre>ID: ' OR '1'='1' -- <br />First name: Pablo<br />Surname: Picasso</pre><pre>ID: ' OR '1'='1' -- <br />First name: Bob<br />Surname: Smith</pre>
+
+#######################################################################################################################################
+
+3. CWE359 - Exposure of Private Personal Information to an Unauthorized Actor
+Description: 
+The product does not properly prevent a person private, personal information from being accessed by actors who either 1 are not explicitly authorized to access the information or 2 do not have the implicit consent of the person about whom the information is collected.
+
+Location: port/80
+CWSS: 62.6
+Solution: 
+Modify application source code that will implement forms of control for sensitive information
+
+Count: 1
+
+
+ AREA DETECTED:
+ 		1. PATH: http://192.168.233.150/dvwa/login.php With KEYWORD: SSN
+
+#######################################################################################################################################
+
+4. CWE260 - Password in Configuration File
+Description: 
+The product stores a password in a configuration file that might be accessible to actors who do not know the password.
+
+Location: port/22
+CWSS: 51.1
+Solution: 
+Avoid storing passwords in easily accessed locations and|or use a cryptographic hash to replace the passwords when storing the password.
+
+Count: 3
+
+
+ AREA DETECTED:
+ 		1. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask, ask, ask, asksame, ask, ask
+		2. PATH: /etc/redsocks.conf With KEYWORD: baz, pazzw0rd
+		3. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme, passw0rd
+
+#######################################################################################################################################
+
+5. CWE312 - Cleartext Storage of Sensitive Information
+Description: 
+The product stores sensitive information in cleartext within a resource that might be accessible to another control sphere.
+
+Location: port/22
+CWSS: 42.6
+Solution: 
+Modify application source code that will implement forms of control for sensitive information such as encryption or hashing mechanisms or algorithms to protect sensitive information stored in files.
+
+Count: 5
+
+
+ AREA DETECTED:
+ 		1. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask, ask, ask, asksame, ask, ask
+		2. PATH: /etc/xrdp/xrdp.ini With KEYWORD: true
+		3. PATH: /etc/redsocks.conf With KEYWORD: baz, pazzw0rd
+		4. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme, passw0rd
+		5. PATH: /etc/responder/Responder.conf With KEYWORD: On
+
+#######################################################################################################################################
+
+Done scanning

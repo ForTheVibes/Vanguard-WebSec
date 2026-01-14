@@ -1,0 +1,21 @@
+Namespace(version=False, config_file=None, cfg_specs=False, sysconfdir=False, scan_start='192.168.233.150', scan_stop=None)
+Starting scan with ID: 7, target ip address: 192.168.233.150
+Number of plugins:  6 
+
+Running script <module 'cwe359_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe359_plugin.py'>
+Running script <module 'cwe261_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe261_plugin.py'>
+Running script <module 'cwe89_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe89_plugin.py'>
+Running script <module 'cwe260_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe260_plugin.py'>
+Running script <module 'cwe312_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe312_plugin.py'>
+Running script <module 'cwe521_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe521_plugin.py'>
+
+Length of the web-app plugins responses 5
+Length of the file-sys plugins responses 18 
+
+This machine is vulnerable to CWE359.
+This machine is not vulnerable to CWE261.
+This machine is vulnerable to CWE89.
+This machine is vulnerable to CWE260.
+This machine is vulnerable to CWE312.
+This machine is vulnerable to CWE521.
+Done scanning

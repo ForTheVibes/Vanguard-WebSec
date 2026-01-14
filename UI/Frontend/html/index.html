@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AEGIS | Home</title>
+
+    <link href="../css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+        integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <style>
+        #leftCol {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .target-ip {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+
+        .ip-form {
+            width: 700px;
+            margin: 0 auto;
+            color: #001E24;
+            position: relative;
+        }
+
+        .input-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 450px;
+            margin: 0 auto;
+        }
+
+        #ip-msg {
+            text-align: center;
+            color: #001E24;
+        }
+
+        #ip-input {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 100px;
+            padding: 10px 100px 10px 20px;
+            line-height: 1;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .rowDisplay {
+            width: 100%;
+        }
+
+        .custom-submit-botton {
+            position: absolute;
+            right: 3px;
+            top: 3px;
+            bottom: 3px;
+            border: 0;
+            color: #335774;
+            outline: none;
+            margin: 3px 5px 3px 0;
+            padding: 0 10px;
+            border-radius: 150px;
+            z-index: 2;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #0D363A;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 46%;
+            display: none;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="home" viewBox="0 0 16 16">
+            <path fill="#FFFFFF"
+                d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z">
+            </path>
+        </symbol>
+        <symbol id="table" viewBox="0 0 16 16">
+            <path fill="#FFFFFF"
+                d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z">
+            </path>
+        </symbol>
+        <symbol id="speedometer2" viewBox="0 0 16 16">
+            <path fill="#FFFFFF"
+                d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z">
+            </path>
+            <path fill-rule="evenodd" fill="#FFFFFF"
+                d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z">
+            </path>
+        </symbol>
+    </svg>
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap" style="height: 800px;">
+            <div class="col-auto col-md-3 col-xl-3 px-sm-2 px-0" style="background: #1c1c1c;">
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-white">
+                    <a id="logoA" class="navbar-brand" href="/">
+                        <img id="aegis_logo" src="../img/aegis_logo.png" alt="Logo">
+                    </a>
+
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item py-2">
+                            <a href="/" class="nav-link active" aria-current="page">
+                                <svg class="bi me-2" width="25" height="25">
+                                    <use xlink:href="#home"></use>
+                                </svg>Dashboard
+                            </a>
+                        </li>
+                        <li class="py-2">
+                            <a href="conf" class="nav-link text-white" aria-current="page">
+                                <svg class="bi me-2" width="25" height="25">
+                                    <use xlink:href="#speedometer2"></use>
+                                </svg>Configuration file
+                            </a>
+                        </li>
+                        <li class="py-2">
+                            <a href="history" class="nav-link text-white" aria-current="page">
+                                <svg class="bi me-2" width="25" height="25">
+                                    <use xlink:href="#table"></use>
+                                </svg>History
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col py-3" id="leftCol" style="background-color: #69B8CF;">
+                <div class="target-ip">
+                    <div class="container-fluid">
+                        <form class="ip-form">
+                            <label for="ip-add">
+                                <h1>Enter Target IP Address:</h1>
+                            </label>
+                            <div class="form-group">
+                                <div class="input-container">
+                                    <input type="text" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+                                        class="ip-add form-control-lg" id="ip-input" placeholder="Target IP address"
+                                        required />
+                                    <button class="custom-submit-botton" id="startscan" type="submit">&#10148;</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="container-fluid">
+                        <div id="loader" class="loader"></div>
+                        <div id="error-msg"></div>
+                    </div>
+                    <div class="container-fluid">
+                        <div id="ip-msg"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const baseUrl = "http://localhost:8081";
+
+            $("#startscan").click(function (e) {
+                e.preventDefault(); // Prevent form submission
+
+                var ip_address = $("#ip-input").val();
+                console.log(ip_address);
+                valIP = validateIPAddress(ip_address);
+                if (valIP) {
+                    $("#ip-msg").html(`Please wait a while for the engine to scan<div>Loading...</div>`);
+                    showLoader();
+                    const uuidUrl = baseUrl + '/retrieve_uuid';
+                    // Make an AJAX request to run the Python script
+                    const runScriptUrl = baseUrl + '/run_script';
+                    fetch(runScriptUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ ip_address: ip_address })
+                    })
+                        .then(response => {
+                            hideLoader();
+                            if (response.status === 200) {
+                                console.log("Python script executed successfully!");
+
+                                // Retrieve the UUID after the script is executed
+                                fetch(uuidUrl)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        // Process the response data
+                                        const uuid = data.scan_uuid;
+                                        console.log("Received UUID:", uuid);
+
+                                        localStorage.setItem('scan_id', uuid);
+                                        window.location.href = "result"; // Redirect to result page after getting UUID
+                                    })
+                                    .catch(error => {
+                                        console.error("Failed to get UUID from the server:", error);
+                                    });
+                            } else {
+                                console.error("Failed to execute Python script");
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Failed to run Python script:", error);
+                            hideLoader();
+                        });
+                } else if (valIP == null) {
+                    $("#ip-msg").html(`Please enter a IP address`);
+                } else {
+                    $("#ip-msg").html(`Invalid IP address<br>Please enter a valid IP address`);
+                }
+            });
+        });
+
+        function validateIPAddress(ip) {
+            if (ip == "") {
+                console.log("Empty IP address");
+                return null;
+            }
+            var ipPattern = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+            if (ipPattern.test(ip)) {
+                console.log("Valid IP address");
+                return true;
+            } else {
+                console.log("Invalid IP address");
+                return false;
+            }
+        }
+
+        function showLoader() {
+            // Show the loader element or add custom loading styles
+            $("#loader").show();
+        }
+
+        function hideLoader() {
+            // Hide the loader element or remove custom loading styles
+            $("#loader").hide();
+        }
+    </script>
+
+</body>
+
+</html>

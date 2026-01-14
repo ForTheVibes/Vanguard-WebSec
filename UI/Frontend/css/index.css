@@ -1,0 +1,17 @@
+body {
+    background-color: #0b0c10;
+}
+
+.aegis-header {
+    text-align: center;
+}
+
+#aegis_logo {
+    float: left;
+    display: inline;
+    max-width: 200px;
+}
+
+#logoA {
+    margin: auto;
+}

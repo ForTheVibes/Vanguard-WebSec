@@ -1,0 +1,6 @@
+AEGIS - VULNERABILITY SCANNING ENGINE
+
+***********************************************************************************************************
+Starting scan with ID: 27, target ip address: 127.0.0.1
+Directory '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/functional_plugins' not found.
+Error: Make sure all the required ports are open
