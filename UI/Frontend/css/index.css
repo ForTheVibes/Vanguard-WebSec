@@ -2,11 +2,11 @@ body {
     background-color: #0b0c10;
 }
 
-.aegis-header {
+.vanguard-header {
     text-align: center;
 }
 
-#aegis_logo {
+#vanguard_logo {
     float: left;
     display: inline;
     max-width: 200px;

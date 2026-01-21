@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>AEGIS | Report</title>
+  <title>VANGUARD | Report</title>
 
   <link href="../css/index.css" rel="stylesheet" />
   <link href="../css/result.css" rel="stylesheet" />
@@ -126,7 +126,7 @@
       <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background: #1c1c1c;">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white">
           <a id="logoA" class="navbar-brand" href="/">
-            <img id="aegis_logo" src="../img/aegis_logo.png" alt="Logo">
+            <img id="vanguard_logo" src="../img/vanguard_logo.png" alt="Logo">
           </a>
 
           <hr>
@@ -159,7 +159,7 @@
       <div class="col py-3" id="leftCol" style="background-color: #69B8CF;">
         <div class="summary-container">
           <div class="row">
-            <div class="Aegis-col" style="font-weight: 900;">AEGIS Vulnerability Report</div>
+            <div class="Vanguard-col" style="font-weight: 900;">VANGUARD Vulnerability Report</div>
           </div>
           <br />
           <div class="row">
@@ -295,7 +295,7 @@
         console.log('Specific Scan Result:', response);
         var response = JSON.parse(response); // Parse the JSON response
         data = response[0]; // The response will be a JSON object or array
-        // Do whatever you need with the 'response' data here
+        
         const high_card = document.getElementById('high_card');
         const med_card = document.getElementById('med_card');
         const low_card = document.getElementById('low_card');
@@ -327,7 +327,7 @@
       .then((response) => {
         console.log('Vulnerability Path Pattern:', response);
         var new_response = JSON.parse(response); // Parse the JSON response
-        // Do whatever you need with the 'response' data here
+        
 
         new_response.sort((a, b) => b.cwss - a.cwss);
         new_response.forEach((item) => {
@@ -338,7 +338,7 @@
             .then((cweResponse) => {
               console.log(`Vulnerability Path Pattern for ${cwe_id}:`, cweResponse);
               var cweResponse = JSON.parse(cweResponse); // Parse the JSON response
-              // Do whatever you need with the 'cweResponse' data here
+              
               console.log(cweResponse)
               var oneCweKeyValue = ``;
               cweResponse.forEach((oneKeyValue, index) => {
@@ -407,7 +407,7 @@
 </script> -->
 <script>
   document.getElementById('exportBtn').addEventListener('click', function () {
-    // Select the element to be captured (the entire body in this case)
+    // Select the element to be captured 
     const element = document.getElementById('leftCol');
 
     // Use html2canvas to capture the content as an image

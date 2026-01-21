@@ -315,7 +315,7 @@ def display_report(scan_id):
 def initialise_scanner():
     result_data = None
 
-    print("AEGIS - VULNERABILITY SCANNING ENGINE\n")
+    print("VANGUARD - VULNERABILITY SCANNING ENGINE\n")
     print("***********************************************************************************************************")
 
     err = 0
@@ -323,7 +323,7 @@ def initialise_scanner():
     setproctitle_init(len(sys.argv), sys.argv, os.environ)
 
     # Create the argument parser
-    parser = argparse.ArgumentParser(description="AGES - Vulnerability Assessment Scanner")
+    parser = argparse.ArgumentParser(description="VANGUARD - Vulnerability Assessment Scanner")
 
     # Add the command-line options
     parser.add_argument('--version', '-V', action='store_true', help='Display version information')
