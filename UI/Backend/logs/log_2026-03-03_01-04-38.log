@@ -1,19 +1,19 @@
-AEGIS - VULNERABILITY SCANNING ENGINE
+VANGUARD - VULNERABILITY SCANNING ENGINE
 
 ***********************************************************************************************************
-Starting scan with ID: 28, target ip address: 127.0.0.1
+Starting scan with ID: 71, target ip address: 127.0.0.1
 Number of plugins:  6 
 
-Running script <module 'cwe359_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/web_app/cwe359_plugin.py'>
-Running script <module 'cwe261_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/web_app/cwe261_plugin.py'>
+Running script <module 'cwe359_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/web_app/cwe359_plugin.py'>
+Running script <module 'cwe261_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/web_app/cwe261_plugin.py'>
 [CWE261] user_token not found on DVWA login page at http://127.0.0.1/dvwa/login.php
 [PLUGIN_INIT] cwe261_plugin returned no results, skipping
-Running script <module 'cwe89_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/web_app/cwe89_plugin.py'>
+Running script <module 'cwe89_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/web_app/cwe89_plugin.py'>
 [CWE89] user_token not found on DVWA login page
 [PLUGIN_INIT] cwe89_plugin returned no results, skipping
-Running script <module 'cwe521_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/file_sys/cwe521_plugin.py'>
-Running script <module 'cwe260_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/file_sys/cwe260_plugin.py'>
-Running script <module 'cwe312_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/file_sys/cwe312_plugin.py'>
+Running script <module 'cwe521_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/file_sys/cwe521_plugin.py'>
+Running script <module 'cwe260_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/file_sys/cwe260_plugin.py'>
+Running script <module 'cwe312_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/file_sys/cwe312_plugin.py'>
 
 Length of the web-app plugins responses 1
 Length of the file-sys plugins responses 25 
@@ -29,8 +29,8 @@ This machine is vulnerable to CWE312.
 ***********************************************************************************************************
 
 SCAN INFORMATION:
-Start_time: Wed, 07 Jan 2026 06:12:38 GMT
-End_time: Wed, 07 Jan 2026 06:13:17 GMT
+Start_time: Tue, 03 Mar 2026 06:03:37 GMT
+End_time: Tue, 03 Mar 2026 06:04:37 GMT
 Host IP: 127.0.0.1
 Average Risk Score: 29.5
 
@@ -54,8 +54,8 @@ Count: 13
 
 
  AREA DETECTED:
- 		1. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme
-		2. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: passw0rd
+ 		1. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: passw0rd
+		2. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme
 		3. PATH: /etc/legion.conf With KEYWORD: password
 		4. PATH: /etc/redsocks.conf With KEYWORD: baz
 		5. PATH: /etc/redsocks.conf With KEYWORD: pazzw0rd

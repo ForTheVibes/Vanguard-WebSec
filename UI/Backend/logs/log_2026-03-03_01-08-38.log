@@ -1,19 +1,19 @@
-AEGIS - VULNERABILITY SCANNING ENGINE
+VANGUARD - VULNERABILITY SCANNING ENGINE
 
 ***********************************************************************************************************
-Starting scan with ID: 27, target ip address: 127.0.0.1
+Starting scan with ID: 72, target ip address: 192.168.72.129
 Number of plugins:  6 
 
-Running script <module 'cwe359_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/web_app/cwe359_plugin.py'>
-Running script <module 'cwe261_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/web_app/cwe261_plugin.py'>
-[CWE261] user_token not found on DVWA login page at http://127.0.0.1/dvwa/login.php
+Running script <module 'cwe359_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/web_app/cwe359_plugin.py'>
+Running script <module 'cwe261_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/web_app/cwe261_plugin.py'>
+[CWE261] user_token not found on DVWA login page at http://192.168.72.129/dvwa/login.php
 [PLUGIN_INIT] cwe261_plugin returned no results, skipping
-Running script <module 'cwe89_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/web_app/cwe89_plugin.py'>
+Running script <module 'cwe89_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/web_app/cwe89_plugin.py'>
 [CWE89] user_token not found on DVWA login page
 [PLUGIN_INIT] cwe89_plugin returned no results, skipping
-Running script <module 'cwe521_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/file_sys/cwe521_plugin.py'>
-Running script <module 'cwe260_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/file_sys/cwe260_plugin.py'>
-Running script <module 'cwe312_plugin' from '/home/kali/Downloads/aegis/group-6-fyp-aegis-main/Engine/plugins_utils/../functional_plugins/file_sys/cwe312_plugin.py'>
+Running script <module 'cwe521_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/file_sys/cwe521_plugin.py'>
+Running script <module 'cwe260_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/file_sys/cwe260_plugin.py'>
+Running script <module 'cwe312_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/file_sys/cwe312_plugin.py'>
 
 Length of the web-app plugins responses 1
 Length of the file-sys plugins responses 25 
@@ -29,9 +29,9 @@ This machine is vulnerable to CWE312.
 ***********************************************************************************************************
 
 SCAN INFORMATION:
-Start_time: Wed, 07 Jan 2026 06:09:40 GMT
-End_time: Wed, 07 Jan 2026 06:10:19 GMT
-Host IP: 127.0.0.1
+Start_time: Tue, 03 Mar 2026 06:07:28 GMT
+End_time: Tue, 03 Mar 2026 06:08:37 GMT
+Host IP: 192.168.72.129
 Average Risk Score: 29.5
 
 Overall of vulnerabilities detected

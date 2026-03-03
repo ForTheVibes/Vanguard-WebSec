@@ -1,33 +1,36 @@
-AEGIS - VULNERABILITY SCANNING ENGINE
+VANGUARD - VULNERABILITY SCANNING ENGINE
 
 ***********************************************************************************************************
-Starting scan with ID: 19, target ip address: 192.168.233.150
+Starting scan with ID: 69, target ip address: 192.168.72.133
 Number of plugins:  6 
 
-Running script <module 'cwe359_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe359_plugin.py'>
-Running script <module 'cwe261_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe261_plugin.py'>
-Running script <module 'cwe89_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/web_app/cwe89_plugin.py'>
-Running script <module 'cwe260_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe260_plugin.py'>
-Running script <module 'cwe312_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe312_plugin.py'>
-Running script <module 'cwe521_plugin' from '/home/kali/FYP/group-6-fyp-aegis/Engine/plugins_utils/../functional_plugins/file_sys/cwe521_plugin.py'>
+Running script <module 'cwe359_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/web_app/cwe359_plugin.py'>
+Running script <module 'cwe261_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/web_app/cwe261_plugin.py'>
+Running script <module 'cwe89_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/web_app/cwe89_plugin.py'>
+Running script <module 'cwe521_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/file_sys/cwe521_plugin.py'>
+Running script <module 'cwe260_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/file_sys/cwe260_plugin.py'>
+Running script <module 'cwe312_plugin' from '/home/kali/Downloads/Vanguard-WebSec/Engine/plugins_utils/../functional_plugins/file_sys/cwe312_plugin.py'>
 
 Length of the web-app plugins responses 5
-Length of the file-sys plugins responses 18 
+Length of the file-sys plugins responses 25 
 
 ***********************************************************************************************************
 Summary of the scan:
+No vuln_response from database for this cwe_id
+No vuln_response from database for this cwe_id
+No vuln_response from database for this cwe_id
 This machine is vulnerable to CWE359.
 This machine is not vulnerable to CWE261.
 This machine is vulnerable to CWE89.
+This machine is vulnerable to CWE521.
 This machine is vulnerable to CWE260.
 This machine is vulnerable to CWE312.
-This machine is vulnerable to CWE521.
 ***********************************************************************************************************
 
 SCAN INFORMATION:
-Start_time: Mon, 07 Aug 2023 06:06:02 GMT
-End_time: Mon, 07 Aug 2023 06:06:59 GMT
-Host IP: 192.168.233.150
+Start_time: Tue, 24 Feb 2026 06:27:24 GMT
+End_time: Tue, 24 Feb 2026 06:28:53 GMT
+Host IP: 192.168.72.133
 Average Risk Score: 51.7
 
 Overall of vulnerabilities detected
@@ -46,20 +49,23 @@ CWSS: 84.1
 Solution: 
 Enforce password complexity requirements according to an appropriate password policy.
 
-Count: 10
+Count: 13
 
 
  AREA DETECTED:
- 		1. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
-		2. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
-		3. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
-		4. PATH: /etc/xrdp/xrdp.ini With KEYWORD: asksame
-		5. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
-		6. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
-		7. PATH: /etc/redsocks.conf With KEYWORD: baz
-		8. PATH: /etc/redsocks.conf With KEYWORD: pazzw0rd
-		9. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme
-		10. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: passw0rd
+ 		1. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme
+		2. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: passw0rd
+		3. PATH: /etc/legion.conf With KEYWORD: password
+		4. PATH: /etc/redsocks.conf With KEYWORD: baz
+		5. PATH: /etc/redsocks.conf With KEYWORD: pazzw0rd
+		6. PATH: /etc/unicornscan/modules.conf With KEYWORD: scanit
+		7. PATH: /etc/unicornscan/modules.conf With KEYWORD: scanit
+		8. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
+		9. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
+		10. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
+		11. PATH: /etc/xrdp/xrdp.ini With KEYWORD: asksame
+		12. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
+		13. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask
 
 #######################################################################################################################################
 
@@ -76,7 +82,7 @@ Count: 1
 
 
  AREA DETECTED:
- 		1. PATH: http://192.168.233.150/dvwa/login.php With KEYWORD: <pre>ID: ' OR '1'='1' -- <br />First name: admin<br />Surname: admin</pre><pre>ID: ' OR '1'='1' -- <br />First name: Gordon<br />Surname: Brown</pre><pre>ID: ' OR '1'='1' -- <br />First name: Hack<br />Surname: Me</pre><pre>ID: ' OR '1'='1' -- <br />First name: Pablo<br />Surname: Picasso</pre><pre>ID: ' OR '1'='1' -- <br />First name: Bob<br />Surname: Smith</pre>
+ 		1. PATH: http://192.168.72.133/dvwa/login.php With KEYWORD: <pre>ID: ' OR '1'='1' -- <br />First name: admin<br />Surname: admin</pre><pre>ID: ' OR '1'='1' -- <br />First name: Gordon<br />Surname: Brown</pre><pre>ID: ' OR '1'='1' -- <br />First name: Hack<br />Surname: Me</pre><pre>ID: ' OR '1'='1' -- <br />First name: Pablo<br />Surname: Picasso</pre><pre>ID: ' OR '1'='1' -- <br />First name: Bob<br />Surname: Smith</pre>
 
 #######################################################################################################################################
 
@@ -93,7 +99,7 @@ Count: 1
 
 
  AREA DETECTED:
- 		1. PATH: http://192.168.233.150/dvwa/login.php With KEYWORD: SSN
+ 		1. PATH: http://192.168.72.133/dvwa/login.php With KEYWORD: SSN
 
 #######################################################################################################################################
 
@@ -106,13 +112,15 @@ CWSS: 51.1
 Solution: 
 Avoid storing passwords in easily accessed locations and|or use a cryptographic hash to replace the passwords when storing the password.
 
-Count: 3
+Count: 5
 
 
  AREA DETECTED:
- 		1. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask, ask, ask, asksame, ask, ask
-		2. PATH: /etc/redsocks.conf With KEYWORD: baz, pazzw0rd
-		3. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme, passw0rd
+ 		1. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme, passw0rd
+		2. PATH: /etc/legion.conf With KEYWORD: password
+		3. PATH: /etc/redsocks.conf With KEYWORD: baz, pazzw0rd
+		4. PATH: /etc/unicornscan/modules.conf With KEYWORD: scanit, scanit
+		5. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask, ask, ask, asksame, ask, ask
 
 #######################################################################################################################################
 
@@ -125,15 +133,17 @@ CWSS: 42.6
 Solution: 
 Modify application source code that will implement forms of control for sensitive information such as encryption or hashing mechanisms or algorithms to protect sensitive information stored in files.
 
-Count: 5
+Count: 7
 
 
  AREA DETECTED:
- 		1. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask, ask, ask, asksame, ask, ask
-		2. PATH: /etc/xrdp/xrdp.ini With KEYWORD: true
-		3. PATH: /etc/redsocks.conf With KEYWORD: baz, pazzw0rd
-		4. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme, passw0rd
-		5. PATH: /etc/responder/Responder.conf With KEYWORD: On
+ 		1. PATH: /etc/sqlmap/sqlmap.conf With KEYWORD: guessme, passw0rd
+		2. PATH: /etc/responder/Responder.conf With KEYWORD: On
+		3. PATH: /etc/legion.conf With KEYWORD: password
+		4. PATH: /etc/redsocks.conf With KEYWORD: baz, pazzw0rd
+		5. PATH: /etc/unicornscan/modules.conf With KEYWORD: scanit, scanit
+		6. PATH: /etc/xrdp/xrdp.ini With KEYWORD: ask, ask, ask, asksame, ask, ask
+		7. PATH: /etc/xrdp/xrdp.ini With KEYWORD: true
 
 #######################################################################################################################################
 
